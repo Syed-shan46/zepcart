@@ -10,8 +10,11 @@ import 'package:zepcart/shared/widgets/cards/product_card.dart';
 class PopularProductsList extends StatelessWidget {
   const PopularProductsList({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
+     final bool isLoading = true;
     return SizedBox(
       height: 220, // Fixed height for the product list
       child: Consumer(
@@ -35,9 +38,7 @@ class PopularProductsList extends StatelessWidget {
                     return SizedBox(
                       width: 160, // Fixed width for each product card
                       // Reusable ProductCard
-                      child: ProductCard(
-                        product: product,
-                      ), // Product display card
+                      child: ProductCard(product: product), // Product display card
                     );
                   },
                 ),
@@ -45,9 +46,7 @@ class PopularProductsList extends StatelessWidget {
             // Loading State: Show shimmer
             loading: () => HorizontalProductListShimmer(),
 
-            // ------------------------
-            // Error State: Show message
-            // ------------------------
+            // Error State: Show mssage
             error: (e, _) => Center(child: Text("Error loading products: $e")),
           );
         },

@@ -28,7 +28,7 @@ class ProductCardShimmer extends StatelessWidget {
             // Shimmering image container
             AppShimmerWidget(
               shimmerWidth: double.infinity,
-              shimmerHeight: 100.h,
+              shimmerHeight: 75.h,
             ),
 
             SizedBox(height: AppSizes.spacing.xs),
@@ -36,7 +36,7 @@ class ProductCardShimmer extends StatelessWidget {
             // Shimmering rating bar and reviews
             Row(
               children: [
-                AppShimmerWidget(shimmerWidth: 90.w, shimmerHeight: 14.h),
+                AppShimmerWidget(shimmerWidth: 75.w, shimmerHeight: 14.h),
                 SizedBox(width: AppOffsets.nudgeSM),
                 AppShimmerWidget(shimmerWidth: 30.w, shimmerHeight: 14.h),
               ],

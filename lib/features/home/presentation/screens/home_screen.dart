@@ -64,6 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 AppSectionHeader(title: AppStringsHome.bestForYou),
                 // Horizontal list of recommended products
                 RecommendedProductsList(),
+
+                SizedBox(height: AppSizes.spacing.betweenSectionsLarge,)
               ],
             ),
           ),
