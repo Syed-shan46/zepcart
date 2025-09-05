@@ -28,7 +28,7 @@ class ProductCardShimmer extends StatelessWidget {
             // Shimmering image container
             AppShimmerWidget(
               shimmerWidth: double.infinity,
-              shimmerHeight: 75.h,
+              shimmerHeight: 90.h,
             ),
 
             SizedBox(height: AppSizes.spacing.xs),

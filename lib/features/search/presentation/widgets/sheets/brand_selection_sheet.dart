@@ -44,13 +44,18 @@ class _BrandSelectionSheetState extends State<BrandSelectionSheet> {
     super.initState();
 
     // Initialize selection map using the initial selection list
-    _brands = {for (var brand in allBrands) brand: widget.initialSelection.contains(brand)};
+    _brands = {
+      for (var brand in allBrands)
+        brand: widget.initialSelection.contains(brand),
+    };
   }
 
   // Returns the list of brands filtered by the search query
   List<String> get filteredBrands {
     final query = _searchController.text.toLowerCase();
-    return allBrands.where((brand) => brand.toLowerCase().contains(query)).toList();
+    return allBrands
+        .where((brand) => brand.toLowerCase().contains(query))
+        .toList();
   }
 
   @override
@@ -62,29 +67,28 @@ class _BrandSelectionSheetState extends State<BrandSelectionSheet> {
       initialChildSize: 0.9,
       maxChildSize: 0.95,
       minChildSize: 0.5,
-      builder:
-          (context, scrollController) => Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor, // or Colors.white
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-            ),
-            child: Column(
-              children: [
-                SizedBox(height: AppSizes.spacing.betweenItems),
-                AppBottomSheetHandle(),
-                // Top header with back button, title, and reset option
-                _buildHeader(context),
+      builder: (context, scrollController) => Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).scaffoldBackgroundColor, // or Colors.white
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+        ),
+        child: Column(
+          children: [
+            SizedBox(height: AppSizes.spacing.betweenItems),
+            AppBottomSheetHandle(),
+            // Top header with back button, title, and reset option
+            _buildHeader(context),
 
-                // Search input field
-                _buildSearchField(context.isDarkMode),
-                // Brand selection list grouped by first letter
-                _buildBrandList(scrollController, grouped, context),
+            // Search input field
+            _buildSearchField(context.isDarkMode),
+            // Brand selection list grouped by first letter
+            _buildBrandList(scrollController, grouped, context),
 
-                // Apply button to return selected brands
-                _buildApplyButton(context),
-              ],
-            ),
-          ),
+            // Apply button to return selected brands
+            _buildApplyButton(context),
+          ],
+        ),
+      ),
     );
   }
 
@@ -120,7 +124,10 @@ class _BrandSelectionSheetState extends State<BrandSelectionSheet> {
           text: 'Apply',
           // Collect selected brands and return to caller
           onPressed: () {
-            final selected = _brands.entries.where((e) => e.value).map((e) => e.key).toList();
+            final selected = _brands.entries
+                .where((e) => e.value)
+                .map((e) => e.key)
+                .toList();
             Navigator.pop(context, selected);
           },
           borderRadius: AppSizes.buttonRadius,
@@ -138,37 +145,40 @@ class _BrandSelectionSheetState extends State<BrandSelectionSheet> {
     return Expanded(
       child: ListView(
         controller: scrollController,
-        children:
-            grouped.entries.map((entry) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: AppSizes.padding.md,
-                      vertical: AppSizes.padding.xs,
-                    ),
-                    child: Text(entry.key),
+        children: grouped.entries.map((entry) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.padding.md,
+                  vertical: AppSizes.padding.xs,
+                ),
+                child: Text(entry.key),
+              ),
+              ...entry.value.map((brand) {
+                return CheckboxListTile(
+                  value: _brands[brand],
+                  onChanged: (val) {
+                    setState(() {
+                      _brands[brand] = val!;
+                    });
+                  },
+                  title: Text(brand, style: AppTextStyles.bodyMedium(context)),
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: AppSizes.padding.md,
                   ),
-                  ...entry.value.map((brand) {
-                    return CheckboxListTile(
-                      value: _brands[brand],
-                      onChanged: (val) {
-                        setState(() {
-                          _brands[brand] = val!;
-                        });
-                      },
-                      title: Text(brand, style: AppTextStyles.bodyMedium(context)),
-                      contentPadding: EdgeInsets.symmetric(horizontal: AppSizes.padding.md),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(AppSizes.borderRadius.xs),
-                      ),
-                      side: const BorderSide(color: AppColors.grey, width: 1),
-                    );
-                  }),
-                ],
-              );
-            }).toList(),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      AppSizes.borderRadius.xs,
+                    ),
+                  ),
+                  side: const BorderSide(color: AppColors.grey, width: 1),
+                );
+              }),
+            ],
+          );
+        }).toList(),
       ),
     );
   }

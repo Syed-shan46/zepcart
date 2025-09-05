@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:zepcart/core/common/design_system/app_sizes.dart';
 import 'package:zepcart/core/common/localization/app_strings_navigation.dart';
 import 'package:zepcart/core/controllers/bottom_nav_controller.dart';
@@ -41,14 +40,11 @@ class AppCupertinoBottomNav extends StatelessWidget {
           items: [
             // Home Tab
             BottomNavigationBarItem(
-              icon: Icon(Iconsax.home, size: AppSizes.font.xl),
+              icon: Icon(
+                selectedIndex == 0 ? Iconsax.home_2 : Iconsax.home,
+                size: AppSizes.font.xl,
+              ),
               label: AppStringsNavigation.home,
-            ),
-
-            // Search Tab
-            BottomNavigationBarItem(
-              icon: Icon(Iconsax.search_favorite, size: AppSizes.font.xl),
-              label: AppStringsNavigation.search,
             ),
 
             // Wishlist Tab
@@ -57,10 +53,24 @@ class AppCupertinoBottomNav extends StatelessWidget {
               label: AppStringsNavigation.wishlist,
             ),
 
+            // Search Tab
+            BottomNavigationBarItem(
+              icon: Icon(
+                selectedIndex == 2
+                    ? Iconsax.receipt_item
+                    : Iconsax.receipt_minus,
+                size: AppSizes.font.xl,
+              ),
+              label: AppStringsNavigation.orders,
+            ),
+
             // Profile Tab
             BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline, size: AppSizes.font.xl),
-              label: AppStringsNavigation.profile,
+              icon: Icon(
+                selectedIndex == 3 ? Iconsax.setting_2 : Iconsax.setting,
+                size: AppSizes.font.xl,
+              ),
+              label: AppStringsNavigation.settings,
             ),
           ],
         ),

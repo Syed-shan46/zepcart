@@ -27,7 +27,7 @@ class OrderStatusTab extends ConsumerWidget {
     ];
 
     return SizedBox(
-      height: 40, // fix height for tab row
+      height: 35, // fix height for tab row
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: statuses.length,
@@ -37,13 +37,10 @@ class OrderStatusTab extends ConsumerWidget {
           final isActive = selectedStatus == label;
 
           return Padding(
-            padding: EdgeInsets.only(
-              left: index == 0 ? AppSizes.spacing.sm : AppSizes.spacing.xs,
-              right: AppSizes.spacing.xs,
-            ),
+            padding: EdgeInsets.only(right: AppSizes.spacing.xs * 2),
             child: GestureDetector(
-              onTap:
-                  () => ref.read(selectedStatusProvider.notifier).state = label,
+              onTap: () =>
+                  ref.read(selectedStatusProvider.notifier).state = label,
               child: buildTab(context, label, count, isActive),
             ),
           );
@@ -64,11 +61,10 @@ class OrderStatusTab extends ConsumerWidget {
         vertical: AppSizes.padding.smd / 2,
       ),
       decoration: BoxDecoration(
-        color:
-            isActive
-                ? context.colors.primary.withAlpha(AppOpacities.veryLowOpaque)
-                : context.colors.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(AppSizes.borderRadius.lg),
+        color: isActive
+            ? context.colors.primary.withAlpha(AppOpacities.veryLowOpaque)
+            : context.colors.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(AppSizes.borderRadius.md),
       ),
       child: Row(
         children: [

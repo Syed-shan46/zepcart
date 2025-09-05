@@ -6,11 +6,11 @@ import 'package:zepcart/shared/styles/app_text_styles.dart';
 
 // A Flutter widget displaying a row with product image, title, quantity, and price for checkout items.
 // Styled with rounded images and responsive text styles for clear presentation.
-class CheckoutItemTile extends StatelessWidget {
+class CheckoutItemScreenTile extends StatelessWidget {
   final ProductModel product;
   final int quantity;
 
-  const CheckoutItemTile({
+  const CheckoutItemScreenTile({
     super.key,
     required this.product,
     required this.quantity,
@@ -22,7 +22,7 @@ class CheckoutItemTile extends StatelessWidget {
       children: [
         // Product image with rounded corners
         ClipRRect(
-          borderRadius: BorderRadius.circular(AppSizes.borderRadius.sm),
+          borderRadius: BorderRadius.circular(AppSizes.borderRadius.xs),
           child: Image.network(
             product.images.first,
             height: 60,

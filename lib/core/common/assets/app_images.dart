@@ -15,12 +15,6 @@ class AppImages {
   // User Avatar
   static const String userImage = 'assets/images/user/user.png';
 
-  //  Brand Icons
-  static const String nikeLogo = "assets/images/logos/nike_logo.png";
-  static const String appleLogo = "assets/images/logos/apple_logo.png";
-  static const String samsungLogo = "assets/images/logos/samsung_logo.png";
-  static const String sonyLogo = "assets/images/logos/sony_logo.png";
-
   // Category Images
   static const String fashion = "assets/images/categories/fashion.png";
   static const String automotive = "assets/images/categories/automotive.png";
@@ -58,8 +52,8 @@ class AppImages {
   static const String laptopScreen =
       "assets/icons/sub-categories/laptop-screen.png";
   static const String milk = "assets/icons/sub-categories/milk.png";
-  static const String mobilePhone =
-      "assets/icons/sub-categories/mobile-phone.png";
+  static const String mobile =
+      "assets/icons/sub-categories/smartphone.png";
   static const String nachos = "assets/icons/sub-categories/nachos.png";
   static const String runningShoe =
       "assets/icons/sub-categories/running-shoe.png";

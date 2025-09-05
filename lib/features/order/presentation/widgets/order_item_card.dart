@@ -17,6 +17,7 @@ class OrderItemCard extends StatefulWidget {
   final String image;
   final String itemName;
   final String color;
+  final bool? showViewAllToggle;
   const OrderItemCard({
     super.key,
     required this.context,
@@ -25,6 +26,7 @@ class OrderItemCard extends StatefulWidget {
     required this.image,
     required this.itemName,
     required this.color,
+    this.showViewAllToggle = true,
   });
 
   final BuildContext context;
@@ -50,13 +52,13 @@ class _OrderItemCardState extends State<OrderItemCard> {
               // Order Header
               OrderCardHeader(widget: widget, context: context),
               SizedBox(height: AppSizes.spacing.xs),
-              AppDivider(),
 
+              AppDivider(),
               // Order Product Items
               OrderProductItems(widget: widget, context: context),
 
               // View All toggle
-              _buildViewAllToggle(context.text),
+              if (widget.showViewAllToggle!) _buildViewAllToggle(context.text),
             ],
           ),
         ),

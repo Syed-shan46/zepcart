@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:zepcart/core/common/design_system/app_sizes.dart';
 import 'package:zepcart/core/common/localization/app_strings_order.dart';
 import 'package:zepcart/features/order/presentation/providers/order_provider.dart';
@@ -59,6 +59,7 @@ class OrderDetailsScreen extends ConsumerWidget {
                     orderId: orders.first.id,
                     image: orders.first.image,
                     itemName: orders.first.name,
+                    showViewAllToggle: false,
                   ),
                   SizedBox(
                     height:

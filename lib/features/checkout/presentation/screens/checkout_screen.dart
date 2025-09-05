@@ -66,6 +66,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
             // Address Section Header
             CheckoutItemsHeader(
               title: AppStringsCheckout.selectAddress,
+
               onTap: () => Get.toNamed(AppRoutes.savedAddress),
             ),
 
@@ -76,6 +77,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
             // Items Section Header
             CheckoutItemsHeader(
               title: AppStringsCheckout.items,
+
               onTap: () => Get.toNamed(AppRoutes.checkoutItems),
             ),
             SizedBox(height: AppSizes.spacing.betweenItemsSmall),

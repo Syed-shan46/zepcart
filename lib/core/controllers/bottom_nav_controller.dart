@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:zepcart/features/home/presentation/screens/home_screen.dart';
-import 'package:zepcart/features/search/presentation/screens/search_screen.dart';
+import 'package:zepcart/features/order/presentation/screens/my_orders_screen.dart';
 import 'package:zepcart/features/settings/presentation/screens/settings_screen.dart';
 import 'package:zepcart/features/wishlist/presentation/screens/wishlist_screen.dart';
 
@@ -11,7 +11,12 @@ class BottomNavController extends GetxController {
   var selectedIndex = 0.obs;
 
   // List of screens to navigate between
-  final screens = [HomeScreen(), SearchScreen(), WishlistScreen(), const SettingsScreen()];
+  final screens = [
+    HomeScreen(),
+    WishlistScreen(),
+    MyOrdersScreen(),
+    const SettingsScreen(),
+  ];
 
   // Method to change the selected tab index
   void changeTabIndex(int index) {

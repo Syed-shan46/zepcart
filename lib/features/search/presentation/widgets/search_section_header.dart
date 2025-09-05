@@ -5,15 +5,18 @@ import 'package:zepcart/core/common/localization/app_strings_search.dart';
 
 // A Flutter widget for displaying section headers in the search screen with a title and optional trailing action.
 // Supports a tappable trailing label like "View All" for navigation or expanded views.
-class SearchSectionHeader extends StatelessWidget {
-  const SearchSectionHeader({super.key, required this.title, this.trailing, this.onTap});
+class FilterSheetSectionHeader extends StatelessWidget {
+  const FilterSheetSectionHeader({
+    super.key,
+    required this.title,
+    this.trailing,
+    this.onTap,
+  });
 
   // Title displayed on the left (e.g. “Recent Searches”)
   final String title;
-
   // Optional text displayed on the right (e.g. “View All”)
   final String? trailing;
-
   // Optional callback when trailing text is tapped
   final VoidCallback? onTap;
 
@@ -34,12 +37,12 @@ class SearchSectionHeader extends StatelessWidget {
             ),
           ),
 
-          // Optional "View All" or custom trailing label
+          // Optional "See All" or custom trailing label
           if (trailing != null)
             GestureDetector(
               onTap: onTap,
               child: Text(
-                trailing ?? AppStringsSearch.viewAll,
+                trailing ?? AppStringsSearch.seeAll,
                 style: context.text.bodySmall?.copyWith(
                   fontWeight: FontWeight.w500,
                   color: context.colors.primary, // Uses theme's primary color

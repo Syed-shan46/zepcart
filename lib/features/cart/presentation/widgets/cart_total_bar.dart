@@ -39,7 +39,7 @@ class CartTotalBar extends StatelessWidget {
               Text(
                 AppStringsCommon.total,
                 style: context.text.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
 

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:zepcart/core/common/design_system/app_colors.dart';
 import 'package:zepcart/core/common/design_system/app_sizes.dart';
 import 'package:zepcart/core/common/extensions/context_extensions.dart';
 import 'package:zepcart/core/common/localization/app_strings_navigation.dart';
 import 'package:zepcart/core/utils/device_utility.dart';
 import 'package:zepcart/features/home/presentation/providers/cart_count_provider.dart';
-import 'package:zepcart/routes/app_routes.dart';
-import 'package:badges/badges.dart' as badges;
+import 'package:zepcart/shared/widgets/icons/app_cart_icon.dart';
+import 'package:zepcart/shared/widgets/icons/app_notification_icon.dart';
 
 // A Flutter widget displaying the home screen header with a welcome message and user name.
 // Includes cart and notification icons with dynamic badges and navigation callbacks.
@@ -59,50 +56,14 @@ class HomeHeader extends ConsumerWidget {
             Positioned(
               right: 40,
               top: 10,
-              child: GestureDetector(
-                onTap: () => Get.toNamed(AppRoutes.notification),
-                child: badges.Badge(
-                  showBadge: notificationCount > 0,
-                  badgeContent: Text(
-                    notificationCount > 99 ? '99+' : '$notificationCount',
-                    style: context.text.bodySmall?.copyWith(
-                      fontSize: 10.sp,
-                      color: AppColors.white,
-                    ),
-                  ),
-                  position: badges.BadgePosition.topEnd(top: -4, end: -4),
-                  badgeStyle: badges.BadgeStyle(
-                    badgeColor: AppColors.favorite,
-                    padding: EdgeInsets.all(AppSizes.padding.xs),
-                  ),
-                  child: Icon(Iconsax.notification, size: AppSizes.icon.lg),
-                ),
-              ),
+              child: AppNotificationIcon(notificationCount: notificationCount),
             ),
 
             // Cart icon with badge
             Positioned(
               right: 0,
               top: 10,
-              child: GestureDetector(
-                onTap: () => Get.toNamed(AppRoutes.cart),
-                child: badges.Badge(
-                  showBadge: cartCount > 0,
-                  badgeContent: Text(
-                    cartCount > 99 ? '99+' : '$cartCount',
-                    style: context.text.bodySmall?.copyWith(
-                      fontSize: 10.sp,
-                      color: AppColors.textWhite,
-                    ),
-                  ),
-                  position: badges.BadgePosition.topEnd(top: -4, end: -4),
-                  badgeStyle: badges.BadgeStyle(
-                    badgeColor: AppColors.favorite,
-                    padding: EdgeInsets.all(AppSizes.padding.xs),
-                  ),
-                  child: Icon(Iconsax.shopping_bag, size: AppSizes.icon.lg),
-                ),
-              ),
+              child: AppCartIcon(cartCount: cartCount),
             ),
           ],
         ),

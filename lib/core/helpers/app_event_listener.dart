@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:zepcart/core/common/design_system/app_colors.dart';
-import 'package:zepcart/core/common/extensions/context_extensions.dart';
 import 'package:zepcart/core/common/localization/app_strings_home.dart';
 import 'package:zepcart/core/common/localization/app_strings_wishlist.dart';
 import 'package:zepcart/features/cart/domain/models/cart_model.dart';

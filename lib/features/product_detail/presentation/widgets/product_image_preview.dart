@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:zepcart/core/common/design_system/app_colors.dart';
 import 'package:zepcart/core/common/design_system/app_opacity.dart';
 import 'package:zepcart/core/common/design_system/app_sizes.dart';
 import 'package:zepcart/core/common/extensions/context_extensions.dart';
 import 'package:zepcart/core/common/widgets/curved_edges.dart';
-import 'package:zepcart/core/utils/device_utility.dart';
 import 'package:zepcart/features/home/domain/models/product_model.dart';
 import 'package:zepcart/features/home/presentation/providers/cart_count_provider.dart';
+import 'package:zepcart/features/product_detail/domain/controllers/product_image_controller.dart';
+import 'package:zepcart/features/product_detail/presentation/widgets/product_image_app_bar.dart';
 import 'package:zepcart/features/product_detail/presentation/widgets/product_image_dots.dart';
 import 'package:zepcart/features/wishlist/presentation/providers/wishlist_provider.dart';
 import 'package:zepcart/routes/app_routes.dart';
-import 'package:badges/badges.dart' as badges;
+import 'package:zepcart/shared/widgets/icons/app_cart_icon.dart';
 
 class ProductDetailImages extends ConsumerStatefulWidget {
   const ProductDetailImages({
@@ -112,31 +112,7 @@ class _ProductDetailImagesState extends ConsumerState<ProductDetailImages> {
 
                     Padding(
                       padding: EdgeInsets.only(right: AppSizes.padding.smd),
-                      child: GestureDetector(
-                        onTap: () => Get.toNamed(AppRoutes.cart),
-                        child: badges.Badge(
-                          showBadge: cartCount > 0,
-                          badgeContent: Text(
-                            cartCount > 99 ? '99+' : '$cartCount',
-                            style: context.text.bodySmall?.copyWith(
-                              fontSize: 10.sp,
-                              color: AppColors.textWhite,
-                            ),
-                          ),
-                          position: badges.BadgePosition.topEnd(
-                            top: -4,
-                            end: -4,
-                          ),
-                          badgeStyle: badges.BadgeStyle(
-                            badgeColor: AppColors.favorite,
-                            padding: EdgeInsets.all(AppSizes.padding.xs),
-                          ),
-                          child: Icon(
-                            Iconsax.shopping_bag,
-                            size: AppSizes.icon.lg,
-                          ),
-                        ),
-                      ),
+                      child: AppCartIcon(cartCount: cartCount),
                     ),
                   ],
                 ),
@@ -158,59 +134,4 @@ class _ProductDetailImagesState extends ConsumerState<ProductDetailImages> {
       ),
     );
   }
-}
-
-class ProductImageController extends GetxController {
-  static ProductImageController get instance => Get.find();
-
-  final carousalCurrentIndex = 0.obs;
-
-  void updatePageIndicator(index) {
-    carousalCurrentIndex.value = index;
-  }
-}
-
-class ProductImageAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const ProductImageAppBar({
-    super.key,
-    this.title,
-    this.showBackArrow = false,
-    this.leadingIcon,
-    this.actions,
-    this.leadingOnPressed,
-  });
-
-  final Widget? title;
-  final bool showBackArrow;
-  final IconData? leadingIcon;
-  final List<Widget>? actions;
-  final VoidCallback? leadingOnPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: AppBar(
-        backgroundColor: Colors.transparent,
-        scrolledUnderElevation: 0,
-        automaticallyImplyLeading: false,
-        leading: showBackArrow
-            ? InkWell(
-                onTap: () {
-                  Get.back();
-                },
-                child: Icon(Icons.arrow_back, size: 20),
-              )
-            : leadingIcon != null
-            ? IconButton(onPressed: leadingOnPressed, icon: Icon(leadingIcon))
-            : null,
-        title: title,
-        actions: actions,
-      ),
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(AppDeviceUtils.getAppBarHeight());
 }

@@ -6,7 +6,7 @@ const List<CategoryModel> categoryList = [
     title: 'Electronics',
     imageUrl: AppImages.electronics,
     subCategories: [
-      SubCategoryModel(title: 'Smartphones', imageUrl: AppImages.mobilePhone),
+      SubCategoryModel(title: 'Smartphones', imageUrl: AppImages.mobile),
       SubCategoryModel(title: 'Smartwatch', imageUrl: AppImages.smartwatch),
       SubCategoryModel(
         title: 'Laptop & Screens',

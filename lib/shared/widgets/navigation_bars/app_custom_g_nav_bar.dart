@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import 'package:zepcart/core/common/design_system/app_colors.dart';
 import 'package:zepcart/core/common/design_system/app_sizes.dart';
@@ -49,10 +49,10 @@ class _GoogleNavState extends State<AppCustomGNavBar> {
 
             // Bottom Nav tabs
             tabs: const [
-              GButton(icon: Iconsax.home5, text: AppStringsNavigation.home),
+              GButton(icon: Iconsax.home_2, text: AppStringsNavigation.home),
               GButton(icon: Iconsax.shop, text: AppStringsNavigation.cart),
               GButton(icon: CupertinoIcons.heart, text: AppStringsNavigation.wishlist),
-              GButton(icon: CupertinoIcons.gear_alt_fill, text: AppStringsNavigation.profile),
+              GButton(icon: CupertinoIcons.gear_alt_fill, text: AppStringsNavigation.settings),
             ],
           ),
         ),

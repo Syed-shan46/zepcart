@@ -17,6 +17,7 @@ class AppRoutes {
   static const home = '/home';
   static const offersAndDeals = '/offers-deals';
   static const categoryGrid = '/category-grid';
+  static const search = '/search';
   static const searchResults = '/search-results';
   static const notification = '/notification';
 

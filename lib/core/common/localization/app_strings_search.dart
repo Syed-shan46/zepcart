@@ -29,7 +29,6 @@ class AppStringsSearch {
   static const String fastDelivery = 'Fast Delivery';
   static const String newArrivals = 'New Arrivals';
   static const String bestSellers = 'Best Sellers';
+  static const String ratings = 'Ratings';
 
-  // Misc
-  static const String viewAll = 'View all';
 }

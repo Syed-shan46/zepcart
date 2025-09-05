@@ -4,9 +4,10 @@ class AppStringsNavigation {
   static const String home = 'Home';
   static const String cart = 'Cart';
   static const String wishlist = 'Wishlist';
-  static const String profile = 'Profile';
+  static const String settings = 'Settings';
   static const String categories = 'Categories';
   static const String search = 'Search';
+  static const String orders = 'Ordes';
   static const String viewAll = 'View All';
 
   // Home Header Texts

@@ -64,7 +64,7 @@ class OrderProductItems extends StatelessWidget {
                   children: [
                     // Item Price
                     Text(
-                      widget.price.toString(),
+                      '\$${widget.price.toString()}',
                       style: context.text.bodyMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: context.colors.primary,

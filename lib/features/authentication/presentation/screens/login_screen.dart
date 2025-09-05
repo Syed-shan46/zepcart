@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:zepcart/core/common/design_system/app_sizes.dart';
 import 'package:zepcart/core/common/localization/app_strings_auth.dart';
 import 'package:zepcart/features/authentication/presentation/widgets/buttons/google_login_button.dart';
@@ -81,9 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     // Remember Me checkbox and Forgot Password button
                     RememberForgotRow(
                       rememberMe: _rememberMe,
-                      onRememberChanged:
-                          (value) =>
-                              setState(() => _rememberMe = value ?? false),
+                      onRememberChanged: (value) =>
+                          setState(() => _rememberMe = value ?? false),
                     ),
                     SizedBox(height: AppSizes.spacing.betweenItems),
 

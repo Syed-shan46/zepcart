@@ -17,22 +17,19 @@ class CheckoutItemsScreen extends ConsumerWidget {
       appBar: AppBar(title: Text(AppStringsCheckout.checkout)),
 
       // List of checkout items with padding
-      body: Padding(
-        padding: EdgeInsets.all(AppSizes.padding.md),
-        child: ListView.separated(
-          itemCount: cart.length, // Showing only 3 sample products
-          separatorBuilder:
-              (_, __) => SizedBox(height: AppSizes.spacing.betweenItems),
-          itemBuilder: (context, index) {
-            final item = cart[index];
-      
-            // Each product represented by a CheckoutItemTile
-            return CheckoutItemTile(
-              product: item.product,
-              quantity: item.quantity,
-            );
-          },
-        ),
+      body: ListView.separated(
+        itemCount: cart.length, // Showing only 3 sample products
+        separatorBuilder: (_, __) =>
+            SizedBox(height: AppSizes.spacing.betweenItems),
+        itemBuilder: (context, index) {
+          final item = cart[index];
+
+          // Each product represented by a CheckoutItemTile
+          return CheckoutItemScreenTile(
+            product: item.product,
+            quantity: item.quantity,
+          );
+        },
       ),
     );
   }

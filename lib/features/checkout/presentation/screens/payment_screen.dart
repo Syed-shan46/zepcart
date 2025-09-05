@@ -54,7 +54,7 @@ class PaymentScreenState extends ConsumerState<PaymentScreen> {
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Card Holder Details
+                    // Card Holder Details5
                     Text(
                       AppStringsCheckout.creditCardHolder,
                       style: TextStyle(fontWeight: FontWeight.bold),

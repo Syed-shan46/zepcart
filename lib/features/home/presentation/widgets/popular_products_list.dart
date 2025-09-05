@@ -14,7 +14,6 @@ class PopularProductsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final bool isLoading = true;
     return SizedBox(
       height: 220, // Fixed height for the product list
       child: Consumer(

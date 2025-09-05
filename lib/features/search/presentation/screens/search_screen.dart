@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:zepcart/core/common/design_system/app_sizes.dart';
 import 'package:zepcart/features/search/presentation/widgets/recent_searches_section.dart';
 import 'package:zepcart/features/search/presentation/widgets/search_input_bar.dart';
-import 'package:zepcart/features/search/presentation/widgets/top_brands_grid.dart';
 import 'package:zepcart/features/search/presentation/widgets/trending_searches_section.dart';
 
 // Main search screen where users can input a search term,
@@ -54,9 +53,6 @@ class _SearchScreenState extends State<SearchScreen> {
 
             // Section displying trending keywords
             TrendingSearchesSection(),
-
-            // Grid view displaying popular brands
-            TopBrandsGrid(),
           ],
         ),
       ),

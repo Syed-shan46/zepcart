@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:zepcart/core/common/design_system/app_colors.dart';
 import 'package:zepcart/core/common/localization/app_strings_order.dart';
 import 'package:zepcart/routes/app_routes.dart';
@@ -46,8 +46,9 @@ class OrderChatCancelBtn extends StatelessWidget {
               ),
               style: OutlinedButton.styleFrom(
                 side: BorderSide(color: AppColors.transparent),
-                backgroundColor:
-                    context.isDarkMode ? AppColors.white : AppColors.black,
+                backgroundColor: context.isDarkMode
+                    ? AppColors.white
+                    : AppColors.black,
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
               ),
             ),

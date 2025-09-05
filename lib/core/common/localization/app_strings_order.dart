@@ -3,7 +3,7 @@ class AppStringsOrder {
   // Screen & Section Titles
   static const String myOrdersTitle = 'My Orders';
   static const String order = 'Order';
-  static const String title = 'Your Order';
+  static const String title = 'Your Orders';
   static const String orderDetailsTitle = 'Order Details';
   static const String orderConfirmation = 'Order Confirmation';
   static const String priceDetails = 'Price Details';

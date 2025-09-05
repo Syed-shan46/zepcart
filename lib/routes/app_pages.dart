@@ -27,6 +27,7 @@ import 'package:zepcart/features/order/presentation/screens/order_details_screen
 import 'package:zepcart/features/order/presentation/screens/order_success_screen.dart';
 import 'package:zepcart/features/help/presentation/screens/help_screen.dart';
 import 'package:zepcart/features/help/presentation/screens/ask_question_screen.dart';
+import 'package:zepcart/features/search/presentation/screens/search_screen.dart';
 import 'package:zepcart/features/settings/presentation/screens/chat_support_screen.dart';
 import 'package:zepcart/features/settings/presentation/screens/edit_profile_screen.dart';
 import 'package:zepcart/features/settings/presentation/screens/change_password_screen.dart';
@@ -76,6 +77,7 @@ class AppPages {
     GetPage(name: AppRoutes.home, page: () => const HomeScreen()),
     GetPage(name: AppRoutes.offersAndDeals, page: () => OffersAndDealsScreen()),
     GetPage(name: AppRoutes.categoryGrid, page: () => CategoryListScreen()),
+    GetPage(name: AppRoutes.search, page: () => SearchScreen()),
     GetPage(name: AppRoutes.searchResults, page: () => SearchResultsScreen()),
     GetPage(name: AppRoutes.notification, page: () => NotificationScreen()),
 
